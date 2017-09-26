@@ -7,8 +7,8 @@ const hero = $(document, 'header > *').map(el => el.cloneNode(true));
 const scripts = ['../js/sidenav.js'];
 
 const templates = {
-  'well-deployed': '<table><thead><tr><th>Feature</th><th>Specification</th><th>Maturity</th><th>Current Implementations</th></tr></thead><tbody></tbody></table>',
-  'exploratory-work':  '<table><thead><tr><th>Feature</th><th>Specification</th><th>Group</th><th>Implementation intents</th></tr></thead><tbody></tbody></table>'
+  'well-deployed': '<table><thead><tr><th>特性</th><th>规范</th><th>成熟度</th><th>现有实现</th></tr></thead><tbody></tbody></table>',
+  'exploratory-work':  '<table><thead><tr><th>特性</th><th>规范</th><th>小组</th><th>实现意向</th></tr></thead><tbody></tbody></table>'
 };
 const templateTocItem = '<a href=""><div class="description"></div></a>';
 
@@ -281,15 +281,15 @@ function formatImplData(data, implType) {
   let div = document.createElement('div');
   if (!data) {
     if (implType === 'well-deployed') {
-      div.appendChild(document.createTextNode('N/A'));
+      div.appendChild(document.createTextNode('无'));
     }
     return div;
   }
   var sections = {
-    'Shipped': 'shipped',
-    'Experimental': 'experimental',
-    'In development': 'indevelopment',
-    'Under consideration': 'consideration'
+    '已有稳定实现': 'shipped',
+    '已有实验性实现': 'experimental',
+    '开发中': 'indevelopment',
+    '考虑实现': 'consideration'
   };
   for (var section in sections) {
       var uadata = data[sections[section]];
